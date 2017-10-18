@@ -1,3 +1,9 @@
 <p>
   contacts-list works!
 </p>
+  <md-list>
+  <md-list-item *ngFor="let contact of contacts">
+    <img md-list-avatar [src]="contact.image" alt="Bild" >
+    <h3 md-line>{{contact.name}}</h3>
+  </md-list-item>
+</md-list>
