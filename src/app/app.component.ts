@@ -12,7 +12,7 @@ export class ContactsAppComponent implements OnInit {
   title = 'Angular Master Class setup works!';
    contacts: Contact[];
     constructor( private contactsService:ContactsService){}
-    
+
    ngOnInit()
    {
 //     service: ContactsService;
