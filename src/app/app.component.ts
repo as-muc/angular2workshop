@@ -1,29 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from './models/contact';
-import { CONTACT_DATA } from './data/contact-data';
+import { ContactsService } from './contacts.service';
+
 
 @Component({
   selector: 'trm-contacts-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class ContactsAppComponent {
+export class ContactsAppComponent implements OnInit {
   title = 'Angular Master Class setup works!';
-/*  contact: Contact = {
- id: 1,
-        name: 'Pascal Precht',
-        email: 'pascal@thoughtram.io',
-        phone: '+49 000 222',
-        birthday: '1991-03-31',
-        website: 'thoughtram.io',
-        image: '/assets/images/1.jpg',
-        address: {
-          street: 'thoughtram road 1',
-          zip: '65222',
-          city: 'Hanover',
-          country: 'Germany'
-        }
-  }
-  */
-   contacts: Contact[] = CONTACT_DATA;
+   contacts: Contact[];
+    constructor( private contactsService:ContactsService){}
+    
+   ngOnInit()
+   {
+//     service: ContactsService;
+//     this.contacts = service.getContacts();
+     this.contacts = this.contactsService.getContacts();
+   }
 }
