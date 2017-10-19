@@ -1,14 +1,17 @@
-<p>
-  contacts-list works!
-</p>
-<div *ngIf="contacts$ | async as contacts; else loading">
+
+
+  <md-toolbar>
+    <md-input-container dividerColor="accent" class="trm-search-container">
+      <input mdInput (input)="search($event.target.value)" type="text">
+    </md-input-container>
+    <md-icon color="accent">search</md-icon>
+  </md-toolbar>
   <md-nav-list>
-    <a md-list-item  [routerLink]="['/contact', contact.id]" *ngFor="let contact of contacts">
+    <a md-list-item  [routerLink]="['/contact', contact.id]" *ngFor="let contact of contacts$ | async">
     <img md-list-avatar [src]="contact.image" alt="Bild" >
     <h3 md-line>{{contact.name}}</h3>
   </a>
 </md-nav-list>
-<</div>
-<ng-template #loading="">
+<ng-template #loading>
   Loading contact...
 </ng-template>
