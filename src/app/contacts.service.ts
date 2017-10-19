@@ -1,19 +1,29 @@
 import { Injectable } from '@angular/core';
 import { CONTACT_DATA } from './data/contact-data';
 import { Contact } from './models/contact';
+import { HttpClient } from '@angular/common/http';
+import  'rxjs/add/operator/map';
+import { Observable }  from 'rxjs/Observable';
+
+
+interface ContactResponse  { item  : Contact    } 
+interface ContactsResponse { items : Contact[]  } 
+
+const API_ENDPOINT ='http://localhost:4201';
 
 @Injectable()
-export class ContactsService {
-      contacts: Contact[] = CONTACT_DATA;
+export class ContactsService
+{
+    constructor(private http: HttpClient) { }
 
-  //constructor() { }
-  getContacts() :Contact[]
-  {
-      return this.contacts;
-  }
+    getContacts() : Observable<Array<Contact>>
+    {
+        return this.http.get<ContactsResponse>(API_ENDPOINT + '/api/contacts/').map(data => data.items);
+    }
 
-  getContact(id: string)
-  {
-      return this.contacts.find(contact => contact.id.toString() === id);
-  }
+    getContact(id: string)
+    {
+        return this.http.get<ContactResponse>(API_ENDPOINT + '/api/contacts/' + id).map(data => data.item);
+   }
 }
+
