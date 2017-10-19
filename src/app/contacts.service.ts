@@ -24,6 +24,12 @@ export class ContactsService
     getContact(id: string)
     {
         return this.http.get<ContactResponse>(API_ENDPOINT + '/api/contacts/' + id).map(data => data.item);
-   }
+    }
+
+    updateContact(contact: Contact)
+    {
+      let targetUrl  = API_ENDPOINT + '/api/contacts/' + contact.id;
+      return this.http.put(targetUrl, contact);
+    }
 }
 

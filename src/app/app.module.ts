@@ -11,16 +11,20 @@ import { ContactsService } from './contacts.service';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailComponent } from './contacts-detail-component/contacts-detail-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactsEditorComponent } from './contacts-editor-component/contacts-editor-component.component';
+import { FormsModule } from '@angular/forms';
 
+ 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
     RouterModule.forRoot(APP_ROUTES),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [ContactsAppComponent],
   providers: [{ provide: ContactsService, useClass: ContactsService },

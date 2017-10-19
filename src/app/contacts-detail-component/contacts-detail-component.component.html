@@ -27,6 +27,9 @@
     <md-card-actions fxLayout fxLayoutAlign="center center">
       <a md-button title="Go back to list" [routerLink]="['/']">Go Back</a>
     </md-card-actions>
+    <md-card-actions fxLayout fxLayoutAlign="right center">
+      <a md-button title="Edit contact" [routerLink]="['/contact', contact.id, 'edit']">edit</a>
+    </md-card-actions>
   </md-card>
   <ng-template>
     <h2> Loading </h2>
