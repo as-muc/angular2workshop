@@ -9,9 +9,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ContactsAppComponent } from './app.component';
 import { ContactsService } from './contacts.service';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import { ContactsDetailComponent } from './contacts-detail-component/contacts-detail-component.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

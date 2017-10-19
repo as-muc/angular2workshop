@@ -10,13 +10,11 @@ import { ContactsService } from './contacts.service';
 })
 export class ContactsAppComponent implements OnInit {
   title = 'Angular Master Class setup works!';
-   contacts: Contact[];
-    constructor( private contactsService:ContactsService){}
+  contacts: Contact[];
+  constructor( private contactsService:ContactsService){}
 
-   ngOnInit()
-   {
-//     service: ContactsService;
-//     this.contacts = service.getContacts();
+  ngOnInit()
+  {
      this.contacts = this.contactsService.getContacts();
-   }
+  }
 }
